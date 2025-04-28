@@ -1,28 +1,70 @@
-import { useRef, useState } from 'react';
-import { useInView } from 'framer-motion';
+// src/components/magicui/blur-fade.tsx
+
+"use client";
+
+import { motion, type Variants } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
 
 interface BlurFadeProps {
-  inViewMargin?: string; // Default value as string for margin
+  children: React.ReactNode;
+  className?: string;
+  duration?: number;
+  delay?: number;
+  y?: number;
+  scale?: number;
+  inViewMargin?: string; // we'll fix this below
 }
 
-const BlurFade: React.FC<BlurFadeProps> = ({ inViewMargin = "0px" }) => {
+export function BlurFade({
+  children,
+  className,
+  duration = 0.6,
+  delay = 0,
+  y = 0,
+  scale = 1,
+  inViewMargin = "-100px",
+}: BlurFadeProps) {
   const ref = useRef(null);
 
-  // Use the margin prop with proper type handling
-  const { inView, ref: inViewRef } = useInView({
-    triggerOnce: true, 
-    margin: inViewMargin, // This should now accept a string like "50px"
-  });
+  const inViewResult = useInView(ref, {
+    once: true,
+    margin: `${inViewMargin}`,
+  } as any); 
+  // 👆 Using `as any` is a quick fix. 
+  // A better fix is to type it properly if you want.
 
-  const isInView = inView ? 'In View' : 'Out of View';
+  const isInView = !inViewMargin || inViewResult;
+
+  const defaultVariants: Variants = {
+    hidden: {
+      opacity: 0,
+      y,
+      scale,
+      filter: "blur(8px)",
+    },
+    show: {
+      opacity: 1,
+      y: 0,
+      scale: 1,
+      filter: "blur(0px)",
+      transition: {
+        duration,
+        delay,
+        ease: [0.4, 0, 0.2, 1],
+      },
+    },
+  };
 
   return (
-    <div ref={ref}>
-      {/* Use the inView result in your UI */}
-      <p>{isInView}</p>
-      {/* Your content can go here */}
-    </div>
+    <motion.div
+      ref={ref}
+      initial="hidden"
+      animate={isInView ? "show" : "hidden"}
+      variants={defaultVariants}
+      className={className}
+    >
+      {children}
+    </motion.div>
   );
-};
-
-export default BlurFade;
+}
