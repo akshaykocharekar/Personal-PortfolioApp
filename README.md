@@ -1,14 +1,13 @@
-# 🚀 Personal Portfolio (Customized from Magic UI Template)
+# 🚀 Personal Portfolio 
 
-This is my personal portfolio website, built by customizing a Magic UI template.  
-I have 🛠️ extended, modified, and integrated new features to make it my own.  
-🎨 Credit goes to the original Magic UI team for the base design inspiration.
+This is my personal portfolio website, thoughtfully crafted by customizing and building upon the Magic UI template.
 
----
-## 📸 Screenshots
+I have extensively 🛠️ modified the structure, extended its functionalities, refined the styling, and integrated new features to align with my personal brand and vision. This includes enhancements in responsiveness, animation, layout structure, and content management.
 
-![Home Page Screenshot-Dark](Screenshot (150).png)
-![Home Page Screenshot-Light](Screenshot (149).png)
+While the original Magic UI team deserves full credit for providing the base design inspiration 🎨, significant effort has been invested to personalize, adapt, and evolve the template into a unique and fully functional portfolio.
+
+The goal of this project was to not just showcase my work but also demonstrate my ability to work with modern frameworks, design systems, and customization best practices.
+
 ---
 ## 🌐 Live Demo
 
