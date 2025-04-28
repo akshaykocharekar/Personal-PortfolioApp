@@ -2,8 +2,7 @@
 
 "use client";
 
-import { motion, type Variants } from "framer-motion";
-import { useInView } from "framer-motion";
+import { motion, type Variants, useInView } from "framer-motion";
 import { useRef } from "react";
 
 interface BlurFadeProps {
@@ -13,7 +12,7 @@ interface BlurFadeProps {
   delay?: number;
   y?: number;
   scale?: number;
-  inViewMargin?: string; // we'll fix this below
+  inViewMargin?: `${number}px` | `${number}%`; // <-- Proper typing
 }
 
 export function BlurFade({
@@ -29,12 +28,8 @@ export function BlurFade({
 
   const inViewResult = useInView(ref, {
     once: true,
-    margin: `${inViewMargin}`,
-  } as any); 
-  // 👆 Using `as any` is a quick fix. 
-  // A better fix is to type it properly if you want.
-
-  const isInView = !inViewMargin || inViewResult;
+    margin: inViewMargin,
+  });
 
   const defaultVariants: Variants = {
     hidden: {
@@ -60,7 +55,7 @@ export function BlurFade({
     <motion.div
       ref={ref}
       initial="hidden"
-      animate={isInView ? "show" : "hidden"}
+      animate={inViewResult ? "show" : "hidden"}
       variants={defaultVariants}
       className={className}
     >
