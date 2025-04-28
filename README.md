@@ -22,15 +22,6 @@ I have 🛠️ extended, modified, and integrated new features to make it my own
 - [Radix UI](https://www.radix-ui.com/)
 - [TypeScript](https://www.typescriptlang.org/)
 
----
-
-## 📚 Features
-
-- Responsive Design 📱💻
-- Light and Dark Mode Support 🌞🌑
-- Animated page transitions ✨
-- Project showcase section 📂
-- Smooth and minimal UI 🖌️
 
 ---
 
