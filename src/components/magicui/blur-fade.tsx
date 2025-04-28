@@ -2,7 +2,10 @@
 
 "use client";
 
-import { motion, type Variants, useInView, type MarginType } from "framer-motion"; // notice `MarginType`
+import { motion, type Variants, useInView } from "framer-motion"; // removed `MarginType`
+
+type MarginValue = string | number;
+type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`;
 import { useRef } from "react";
 
 interface BlurFadeProps {
