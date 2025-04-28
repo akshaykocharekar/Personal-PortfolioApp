@@ -2,7 +2,7 @@
 
 "use client";
 
-import { motion, type Variants, useInView } from "framer-motion";
+import { motion, type Variants, useInView, type MarginType } from "framer-motion"; // notice `MarginType`
 import { useRef } from "react";
 
 interface BlurFadeProps {
@@ -12,7 +12,7 @@ interface BlurFadeProps {
   delay?: number;
   y?: number;
   scale?: number;
-  inViewMargin?: `${number}px` | `${number}%`; // <-- Proper typing
+  inViewMargin?: MarginType; // <- Correct type
 }
 
 export function BlurFade({
@@ -22,7 +22,7 @@ export function BlurFade({
   delay = 0,
   y = 0,
   scale = 1,
-  inViewMargin = "-100px",
+  inViewMargin = "-100px 0px 0px 0px", // <- Notice full 4-sided margin
 }: BlurFadeProps) {
   const ref = useRef(null);
 
