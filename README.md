@@ -5,10 +5,14 @@ I have 🛠️ extended, modified, and integrated new features to make it my own
 🎨 Credit goes to the original Magic UI team for the base design inspiration.
 
 ---
+## 📸 Screenshots
 
+![Home Page Screenshot-Dark](Screenshot (150).png)
+![Home Page Screenshot-Light](Screenshot (149).png)
+---
 ## 🌐 Live Demo
 
-🔗 [View Live Website](https://your-vercel-link-here.vercel.app)
+🔗 [View Live Website](https://akshay-portfolio-nu.vercel.app/)
 
 
 
