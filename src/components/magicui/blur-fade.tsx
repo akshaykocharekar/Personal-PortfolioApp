@@ -1,68 +1,60 @@
-// src/components/magicui/blur-fade.tsx
-
 "use client";
 
-import { motion, type Variants, useInView } from "framer-motion"; // removed `MarginType`
-
-type MarginValue = string | number;
-type MarginType = MarginValue | `${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue}` | `${MarginValue} ${MarginValue} ${MarginValue} ${MarginValue}`;
+import { AnimatePresence, motion, useInView, Variants } from "framer-motion";
 import { useRef } from "react";
 
 interface BlurFadeProps {
   children: React.ReactNode;
   className?: string;
+  variant?: {
+    hidden: { y: number };
+    visible: { y: number };
+  };
   duration?: number;
   delay?: number;
-  y?: number;
-  scale?: number;
-  inViewMargin?: MarginType; // <- Correct type
+  yOffset?: number;
+  inView?: boolean;
+  inViewMargin?: string;
+  blur?: string;
 }
-
-export function BlurFade({
+const BlurFade = ({
   children,
   className,
-  duration = 0.6,
+  variant,
+  duration = 0.4,
   delay = 0,
-  y = 0,
-  scale = 1,
-  inViewMargin = "-100px 0px 0px 0px", // <- Notice full 4-sided margin
-}: BlurFadeProps) {
+  yOffset = 6,
+  inView = false,
+  inViewMargin = "-50px",
+  blur = "6px",
+}: BlurFadeProps) => {
   const ref = useRef(null);
-
-  const inViewResult = useInView(ref, {
-    once: true,
-    margin: inViewMargin,
-  });
-
+  const inViewResult = useInView(ref, { once: true, margin: inViewMargin });
+  const isInView = !inView || inViewResult;
   const defaultVariants: Variants = {
-    hidden: {
-      opacity: 0,
-      y,
-      scale,
-      filter: "blur(8px)",
-    },
-    show: {
-      opacity: 1,
-      y: 0,
-      scale: 1,
-      filter: "blur(0px)",
-      transition: {
-        duration,
-        delay,
-        ease: [0.4, 0, 0.2, 1],
-      },
-    },
+    hidden: { y: yOffset, opacity: 0, filter: `blur(${blur})` },
+    visible: { y: -yOffset, opacity: 1, filter: `blur(0px)` },
   };
-
+  const combinedVariants = variant || defaultVariants;
   return (
-    <motion.div
-      ref={ref}
-      initial="hidden"
-      animate={inViewResult ? "show" : "hidden"}
-      variants={defaultVariants}
-      className={className}
-    >
-      {children}
-    </motion.div>
+    <AnimatePresence>
+      <motion.div
+        ref={ref}
+        initial="hidden"
+        animate={isInView ? "visible" : "hidden"}
+        exit="hidden"
+        variants={combinedVariants}
+        transition={{
+          delay: 0.04 + delay,
+          duration,
+          ease: "easeOut",
+        }}
+        className={className}
+      >
+        {children}
+      </motion.div>
+    </AnimatePresence>
   );
-}
+};
+
+export default BlurFade;
