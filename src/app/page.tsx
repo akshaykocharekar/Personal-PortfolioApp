@@ -161,10 +161,10 @@ export default function Page() {
                 <div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
                   Journey
                 </div><h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-  I like building things
+ { "I like building things"}
 </h2>
 <p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-  My coding journey began in school with HTML and CSS, sparking my interest in web development. As I dove deeper into React, Node.js, and the MERN stack, I faced challenges but pushed through, even almost giving up on React. These struggles with time became a part of learning and get better at this craft, and now, I'm driven to build impactful solutions through technology.
+  {"My coding journey began in school with HTML and CSS, sparking my interest in web development. As I dove deeper into React, Node.js, and the MERN stack, I faced challenges but pushed through, even almost giving up on React. These struggles with time became a part of learning and get better at this craft, and now, I'm driven to build impactful solutions through technology."}
 </p>
 
                 
@@ -200,7 +200,7 @@ export default function Page() {
                 Contact
               </div>
              <h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-  Get in Touch
+  {"Get in Touch"}
 </h2>
 <p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
   Want to connect? Just drop a follow or request on{" "}
@@ -209,8 +209,8 @@ export default function Page() {
     className="text-blue-500 hover:underline"
   >
     Instagram
-  </Link>{" "}
-  and feel free to send a DM. My account’s private, but I do check requests.
+  </Link>
+ {" and feel free to send a DM. My account’s private, but I do check requests."}
 </p>
 
             </div>
