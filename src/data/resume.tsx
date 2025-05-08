@@ -11,7 +11,7 @@ export const DATA = {
     "Aspiring Software Developer with a passion for building innovative solutions and helping others. Always learning and experimenting with new technologies.",
   summary:
     "As I work through my BCA journey, set to wrap up in 2026, I'm diving deep into building and scaling web applications. I'm all in on mastering new technologies, improving my skills, and tackling projects that push me to think outside the box. Hackathons are definitely on my radar for the future, as a way to challenge my creativity and tech abilities. For now, I’m focused on creating real-world solutions that make an impact and continually leveling up my craft.",
-  avatarUrl: "/me.jpg",
+ 
   skills: [
     "React",
     "Node.js",
@@ -148,31 +148,7 @@ export const DATA = {
     
   ],
  projects: [
-  {
-    title: "Firebase Authenticator",
-    href: "https://github.com/akshaykocharekar/firebase-authenticator", // Replace if hosted
-    dates: "Jan 2025",
-    active: true,
-    description:
-      "Built a modern authentication system using Firebase, enabling user registration, login, and secure session handling with real-time database syncing.",
-    technologies: [
-      "React",
-      "Firebase Auth",
-      "Firestore",
-      "TailwindCSS",
-      "Context",
-      "React bits",
-    ],
-    links: [
-      {
-        type: "Source",
-        href: "https://github.com/akshaykocharekar/firebase-authenticator",
-        icon: <Icons.github className="size-3" />,
-      },
-    ],
-    image: "/firebase.png",
-    video: "",
-  },
+ 
   {
     title: "AI Text & Document Summarizer",
     href: "https://github.com/akshaykocharekar/ai-summarizer", // Replace if hosted
@@ -194,7 +170,7 @@ export const DATA = {
         icon: <Icons.github className="size-3" />,
       },
     ],
-    image: "/ai.jpg",
+    image: "",
     video: "",
   },
   {
@@ -222,30 +198,7 @@ export const DATA = {
     image: "/Nodejs.png",
     video: "",
   },
-  {
-    title: "Gemini Chat Bot",
-    href: "https://github.com/akshaykocharekar/gemini-chatbot", // Replace if hosted
-    dates: "April 2025",
-    active: true,
-    description:
-      "Created a conversational AI chatbot using Google's Gemini API with a sleek UI for real-time interactions and creative writing assistance.",
-    technologies: [
-      "React",
-      "Gemini API",
-      "TailwindCSS",
-      "JavaScript",
-      "Chat UI",
-    ],
-    links: [
-      {
-        type: "Source",
-        href: "https://github.com/akshaykocharekar/gemini-chatbot",
-        icon: <Icons.github className="size-3" />,
-      },
-    ],
-    image: "/gemi.webp",
-    video: "",
-  },
+ 
 ],
 
 hackathons: [
